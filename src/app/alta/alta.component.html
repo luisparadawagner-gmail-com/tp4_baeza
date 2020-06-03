@@ -1,5 +1,5 @@
 
-<h1>Dar alta</h1>
+<h1>REGISTRARSE</h1>
 
 
 <form [formGroup]='altaForm' (ngSubmit)=submit()>
@@ -25,5 +25,5 @@
     
 
      Status Formulario: {{altaForm.status}}
-    <button type="submit">Guardar</button>
+    <button type="submit"[routerLink]="['/modificacion-component',altaForm.value]">Guardar</button>
 </form>

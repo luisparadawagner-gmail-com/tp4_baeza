@@ -8,6 +8,7 @@ import {ModificacionComponent} from './modificacion/modificacion.component';
 const routes: Routes = [
 
 { path: 'alta-component', component: AltaComponent },
+{ path: 'modificacion-component', component: ModificacionComponent },
 	{
 		path: 'listar-component',
 		component: ListarComponent,

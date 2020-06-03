@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-alta',
@@ -7,10 +8,15 @@ import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray }
   styleUrls: ['./alta.component.css']
 })
 export class AltaComponent implements OnInit {
- 
-  constructor(private fb: FormBuilder){}
+  //@Output() altaUsuario = new EventEmitter<string>();
+
+  constructor(private fb: FormBuilder,  private router: Router){}
 
   nombreControl = new FormControl('Alta');
+  //usuario: any;
+
+  //jugadores: any[] = [ 'Messi', 'Maradona', 'Tevez' ];
+
 
  // setNombre(){
    //   this.nombreControl.setValue('');
@@ -27,6 +33,9 @@ export class AltaComponent implements OnInit {
   submit(){
     debugger;
     this.altaForm.value;
+
+    
+    
   }
 
 

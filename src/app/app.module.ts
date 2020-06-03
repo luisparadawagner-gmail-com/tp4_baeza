@@ -9,6 +9,8 @@ import { AltaComponent } from './alta/alta.component';
 import { ModificacionComponent } from './modificacion/modificacion.component';
 import { ListarComponent } from './listar/listar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
