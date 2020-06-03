@@ -1,1 +1,30 @@
-<p>modificacion works!</p>
+
+
+<h1>Mostar datos de formulario A</h1>
+
+
+<form [formGroup]='altaForm' (ngSubmit)=submit()>
+    <div class="datosAlta">
+        <label>nombre
+            <input type="text" formControlName="nombre">
+        </label>
+        <br>
+        <label>apellido
+            <input type="text" formControlName="apellido">
+        </label>
+        <br>
+        <label>usuario
+            <input type="text" formControlName="usuario">
+        </label>
+        <br>
+        <label>correo electronico
+            <input type="email" formControlName="correo">
+        </label>
+
+    </div>
+
+    
+
+     Status Formulario: {{altaForm.status}}
+    <button type="submit">Guardar</button>
+</form>

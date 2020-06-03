@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-alta',
@@ -6,8 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alta.component.css']
 })
 export class AltaComponent implements OnInit {
+ 
+  constructor(private fb: FormBuilder){}
 
-  constructor() { }
+  nombreControl = new FormControl('Alta');
+
+ // setNombre(){
+   //   this.nombreControl.setValue('');
+  //}
+
+  altaForm = this.fb.group({
+      nombre : ['', Validators.required],
+      apellido : ['', Validators.required],
+      usuario : [''],
+      correo : ['',Validators.required],
+     
+  });
+
+  submit(){
+    debugger;
+    this.altaForm.value;
+  }
+
 
   ngOnInit(): void {
   }
