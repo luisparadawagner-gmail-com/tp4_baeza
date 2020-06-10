@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../clases/Usuario';
 
 @Component({
   selector: 'app-modificacion',
@@ -7,30 +9,36 @@ import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray }
   styleUrls: ['./modificacion.component.css']
 })
 export class ModificacionComponent implements OnInit {
+ @Input() modificado: Usuario;
+ altaForm: FormGroup;
+  
 
   constructor(private fb: FormBuilder){}
 
-  nombreControl = new FormControl('Alta');
-
- // setNombre(){
-   //   this.nombreControl.setValue('');
-  //}
-
-  altaForm = this.fb.group({
-      nombre : ['', Validators.required],
-      apellido : ['', Validators.required],
-      usuario : [''],
-      correo : ['',Validators.required],
-     
-  });
+  initForm (modificado : Usuario)
+  {
+    debugger;
+    this.altaForm = this.fb.group({
+    nombre : [modificado.nombre, Validators.required],
+    apellido : [modificado.apellido, Validators.required],
+    usuario : [modificado.usuario],
+    correo : [modificado.correo,Validators.required],
+    }); 
+};
+ 
+      
+      ngOnInit(): void {
+        debugger;
+        this.initForm(this.modificado);
+       
+      }
 
   submit(){
     debugger;
-    this.altaForm.value;
+    //this.altaForm.value;
   }
 
 
-  ngOnInit(): void {
-  }
+
 
 }

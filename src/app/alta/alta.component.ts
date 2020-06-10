@@ -1,6 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
 import { Router} from '@angular/router';
+import { ModificacionComponent } from '../modificacion/modificacion.component';
+import { Usuario } from '../clases/Usuario';
+
 
 @Component({
   selector: 'app-alta',
@@ -8,21 +11,16 @@ import { Router} from '@angular/router';
   styleUrls: ['./alta.component.css']
 })
 export class AltaComponent implements OnInit {
-  //@Output() altaUsuario = new EventEmitter<string>();
-
+  
   constructor(private fb: FormBuilder,  private router: Router){}
 
+  usuarioA: Usuario;
+  muestraModificacion: boolean=false;
+  muestraAlta: boolean=true;
+
   nombreControl = new FormControl('Alta');
-  //usuario: any;
 
-  //jugadores: any[] = [ 'Messi', 'Maradona', 'Tevez' ];
-
-
- // setNombre(){
-   //   this.nombreControl.setValue('');
-  //}
-
-  altaForm = this.fb.group({
+    altaForm = this.fb.group({
       nombre : ['', Validators.required],
       apellido : ['', Validators.required],
       usuario : [''],
@@ -33,11 +31,11 @@ export class AltaComponent implements OnInit {
   submit(){
     debugger;
     this.altaForm.value;
-
-    
-    
+    this.usuarioA = this.altaForm.value;
+    this.muestraModificacion=true;
+    this.muestraAlta =false;
+        
   }
-
 
   ngOnInit(): void {
   }

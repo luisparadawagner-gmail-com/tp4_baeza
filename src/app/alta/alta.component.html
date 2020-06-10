@@ -1,6 +1,8 @@
 
-<h1>REGISTRARSE</h1>
 
+
+<div *ngIf= " muestraAlta">
+<h1>REGISTRARSE</h1>
 
 <form [formGroup]='altaForm' (ngSubmit)=submit()>
     <div class="datosAlta">
@@ -23,7 +25,16 @@
     </div>
 
     
-
      Status Formulario: {{altaForm.status}}
-    <button type="submit"[routerLink]="['/modificacion-component',altaForm.value]">Guardar</button>
+
+     <button >Guardar</button>
+
+    <!-- <button type="submit"[rout="['/modificacion-component',altaForm.value]">Guardar</button> -->
 </form>
+
+</div>
+
+<div *ngIf ="muestraModificacion"> 
+<!-- modificado es parte del componente b -->
+<app-modificacion [modificado]="usuarioA"></app-modificacion>
+</div>
