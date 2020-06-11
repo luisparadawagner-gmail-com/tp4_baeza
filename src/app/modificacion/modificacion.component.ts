@@ -10,10 +10,26 @@ import { Usuario } from '../clases/Usuario';
 })
 export class ModificacionComponent implements OnInit {
  @Input() modificado: Usuario;
+//@Input() modificado:any;
  altaForm: FormGroup;
+ parametro:any;
+persona: Usuario;
+ //persona: any;
   
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private route: ActivatedRoute){}
+
+  ngOnInit(): void {
+  this.parametro= this.route.snapshot.params;
+
+  if (Object.keys(this.parametro).length) {
+    this.persona = this.parametro;
+  } else {
+    this.persona = this.modificado;
+  }
+
+  this.initForm(this.persona);
+}
 
   initForm (modificado : Usuario)
   {
@@ -27,11 +43,11 @@ export class ModificacionComponent implements OnInit {
 };
  
       
-      ngOnInit(): void {
-        debugger;
-        this.initForm(this.modificado);
+     
+      //   debugger;
+      //   this.initForm(this.modificado);
        
-      }
+      // }
 
   submit(){
     debugger;

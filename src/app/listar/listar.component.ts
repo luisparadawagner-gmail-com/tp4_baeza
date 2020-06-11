@@ -17,34 +17,29 @@ import { element } from 'protractor';
 
 export class ListarComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'apellido', 'usuario', 'correo','modificar'];
-  dataSource = new MatTableDataSource<Usuario>(ELEMENT_DATA);
+ 
   
+  constructor(private router:Router){}
 
-  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  ELEMENT_DATA: Usuario[] = [
+    {nombre: 'Carolina', apellido: 'Baeza', usuario: 'cbaeza', correo: 'correo@prueba'},
+    {nombre: 'Sergio',apellido: 'Gomez',usuario: 'sgomez',correo: 'sgomez@gmail.com'},
+    {nombre: 'Tomas',apellido: 'Perez',usuario: 'tperez',correo: 'tperez@gmail.com'},
+    {nombre: 'Sergio',apellido: 'Gomez',usuario: 'sgomez',correo: 'sgomez@gmail.com'},
+    {nombre: 'Ana',apellido: 'Ramos',usuario: 'aramos',correo: 'aramos@gmail.com'},	
+    
+  ];
 
+  dataSource = this.ELEMENT_DATA;
 
   ngOnInit() {
-    //this.dataSource.paginator = this.paginator;
-  
     
   }	  
   
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
-  goToListar() {		
-    this.router.navigate(["/modificacion-component",ELEMENT_DATA[2]]);
+  
+  goToListar(user) {		
+    this.router.navigate(["/modificacion-component",user]);
   }
 }
-
-  
-
-const ELEMENT_DATA: Usuario[] = [
-  {nombre: 'Carolina', apellido: 'Baeza', usuario: 'cbaeza', correo: 'correo@prueba'},
-  {nombre: 'Sergio',apellido: 'Gomez',usuario: 'sgomez',correo: 'sgomez@gmail.com'},
-  {nombre: 'Tomas',apellido: 'Perez',usuario: 'tperez',correo: 'tperez@gmail.com'},
-  {nombre: 'Sergio',apellido: 'Gomez',usuario: 'sgomez',correo: 'sgomez@gmail.com'},
-	{nombre: 'Ana',apellido: 'Ramos',usuario: 'aramos',correo: 'aramos@gmail.com'},	
-	
-];
-
 

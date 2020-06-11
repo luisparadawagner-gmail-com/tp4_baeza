@@ -30,7 +30,7 @@ class="mat-elevation-z8">
     <td mat-cell *matCellDef="let user">
       <!-- Hay que hacerlo pero llamndo desde la clase, no asi -->
         <!-- <button [routerLink]="['/modificacion-component']">Modificar</button> -->
-        <button type="button" (click)="goToListar()">Modificar</button>
+        <button (click)="goToListar(user)">Modificar</button>
     </td>
    </ng-container> 
 
